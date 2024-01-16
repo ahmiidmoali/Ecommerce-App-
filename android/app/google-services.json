@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "120313776396",
+    "project_id": "ecommerce-ccd4d",
+    "storage_bucket": "ecommerce-ccd4d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:120313776396:android:a92be9a765834bd25ea129",
+        "android_client_info": {
+          "package_name": "com.example.project33"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAabxrJdPuNR1fACWJ5lkj117QsLlV4qs8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
