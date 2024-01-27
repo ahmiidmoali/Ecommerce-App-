@@ -117,7 +117,7 @@ class ListItems extends GetView<HomePageControllerImp> {
                         Text(
                           " ${(topSellingModel.itemsPrice! - topSellingModel.itemsPrice! * topSellingModel.itemsDiscount! / 100)}",
                           style: const TextStyle(
-                              color: Colors.black,
+                              color: Color.fromARGB(255, 66, 58, 58),
                               fontFamily: "sans",
                               fontSize: 20,
                               fontWeight: FontWeight.bold),

@@ -20,6 +20,10 @@ abstract class HomePageController extends SearchDataController {
 class HomePageControllerImp extends HomePageController {
   // int currentpage = 0;
   // late PageController pageController;
+  List myadsdata = [
+    {"ads_id": 0, "ads_image": "logo.png", "ads_type": 0, "ads_content": "0"}
+  ];
+  List ads = [];
   String title = "there are no";
   String body = "discounts now";
   String discount = "0";
@@ -69,6 +73,13 @@ class HomePageControllerImp extends HomePageController {
           discount = response["settings"][0]["settings_discount"].toString();
         } else {
           discounts = false;
+        }
+        if (response["ads"] != null) {
+          ads.addAll(response["ads"]);
+          myadsdata.addAll(ads);
+          print("===========================================================");
+          print(myadsdata);
+          print("===========================================================");
         }
       } else {
         statusRequest = StatusRequest.failure;

@@ -4,6 +4,7 @@ class AppLink {
   //.................
   static const String imagecategories = "$imageStatic/categories";
   static const String imageitems = "$imageStatic/items";
+  static const String imageads = "$imageStatic/ads";
   //.................
 
   static const String test = "$server/test.php";

@@ -32,59 +32,65 @@ class CustomAllAdsColumn extends StatelessWidget {
           ),
         ),
         GetBuilder<HomePageAnimateController>(
-          builder: (controller) => Container(
-              height: 150,
-              child: Stack(
-                alignment: Alignment.center,
-                children: [
-                  SizedBox(
-                    height: 150,
-                    child: ListView(
-                      shrinkWrap: true,
-                      scrollDirection: Axis.horizontal,
-                      children: [
-                        Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            CustomAds1(
-                              imagename: controller.myimage,
-                            )
-                          ],
-                        )
-                      ],
-                    ),
-                  ),
-                  Positioned(
-                      top: 1,
-                      right: 1,
-                      child: Container(
-                        color: AppColor.background,
-                        child: const Text(
-                          "sponsored",
-                          style: TextStyle(fontSize: 15),
-                        ),
-                      )),
-                  Positioned(
-                      bottom: 20,
-                      child: Row(
+          builder: (controller) => InkWell(
+            onTap: () {
+              controller.takeaction();
+            },
+            child: Container(
+                height: 150,
+                child: Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    SizedBox(
+                      height: 150,
+                      child: ListView(
+                        shrinkWrap: true,
+                        scrollDirection: Axis.horizontal,
                         children: [
-                          ...List.generate(
-                            controller.imagename.length,
-                            (index) => Container(
-                              margin: const EdgeInsets.only(right: 4),
-                              height: 8,
-                              width: 30,
-                              decoration: BoxDecoration(
-                                  color: controller.myindex == index
-                                      ? AppColor.primaryColor
-                                      : AppColor.white,
-                                  borderRadius: BorderRadius.circular(4)),
-                            ),
+                          Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              CustomAds1(
+                                imagename: controller.myimage,
+                              )
+                            ],
                           )
                         ],
-                      )),
-                ],
-              )),
+                      ),
+                    ),
+                    Positioned(
+                        top: 1,
+                        right: 1,
+                        child: Container(
+                          color: AppColor.background,
+                          child: const Text(
+                            "sponsored",
+                            style: TextStyle(fontSize: 15),
+                          ),
+                        )),
+                    Positioned(
+                        bottom: 20,
+                        child: Row(
+                          children: [
+                            ...List.generate(
+                              controller.myadsdata.length,
+                              (index) => Container(
+                                margin: const EdgeInsets.only(right: 4),
+                                height: 8,
+                                width: 30,
+                                decoration: BoxDecoration(
+                                    border: Border.all(color: AppColor.black),
+                                    color: controller.myindex == index
+                                        ? AppColor.primaryColor
+                                        : AppColor.white,
+                                    borderRadius: BorderRadius.circular(4)),
+                              ),
+                            )
+                          ],
+                        )),
+                  ],
+                )),
+          ),
         ),
       ],
     );
