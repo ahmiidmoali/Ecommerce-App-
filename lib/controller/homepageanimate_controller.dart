@@ -11,6 +11,7 @@ class HomePageAnimateController extends HomePageControllerImp {
   int myindex = 0;
   int type = 0;
   String content = "";
+  int? citemsid;
   bool newturn = false;
 
   takeaction() {
@@ -19,9 +20,8 @@ class HomePageAnimateController extends HomePageControllerImp {
     }
     if (type == 1) {
       List theitems = [];
-      theitems.addAll(items
-          .where((element) => element["items_id"] == int.parse(content))
-          .toList());
+      theitems.addAll(
+          items.where((element) => element["items_id"] == citemsid).toList());
       print(theitems);
       Map<String, dynamic> mapitems = theitems[0];
 
@@ -48,6 +48,7 @@ class HomePageAnimateController extends HomePageControllerImp {
           myimage = myadsdata[i]["ads_image"];
           type = myadsdata[i]["ads_type"];
           content = myadsdata[i]["ads_content"];
+          citemsid = myadsdata[i]["ads_itemsid"];
           myindex = i;
           update();
           newturn = false;

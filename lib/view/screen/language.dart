@@ -5,11 +5,14 @@ import 'package:project33/core/constant/routes.dart';
 import 'package:project33/core/localization/changelocal.dart';
 import 'package:project33/view/widget/language/custombuttomlang.dart';
 
+import '../../core/services/services.dart';
+
 class language extends GetView<LocaleController> {
   const language({super.key});
 
   @override
   Widget build(BuildContext context) {
+    MyServices myServices = Get.find();
     return Scaffold(
       backgroundColor: AppColor.background,
       body: Container(
@@ -25,8 +28,11 @@ class language extends GetView<LocaleController> {
               title: "2".tr, //Arabic
               onPressed: () {
                 controller.changelang("ar");
-
-                Get.toNamed(AppRoute.onBoarding);
+                if (myServices.sharedPreferences.getString("step") == "2") {
+                  Get.offAllNamed(AppRoute.homepage);
+                } else {
+                  Get.toNamed(AppRoute.onBoarding);
+                }
               },
             ),
             customButtonLang(
@@ -34,7 +40,11 @@ class language extends GetView<LocaleController> {
               onPressed: () {
                 controller.changelang("en");
 
-                Get.toNamed(AppRoute.onBoarding);
+                if (myServices.sharedPreferences.getString("step") == "2") {
+                  Get.offAllNamed(AppRoute.homepage);
+                } else {
+                  Get.toNamed(AppRoute.onBoarding);
+                }
               },
             )
           ],

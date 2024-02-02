@@ -2,6 +2,7 @@ class AppImageAsset {
   static const String rootImages = "assets/images";
   static const String rootLottie = "assets/Lottie";
   static const String logo = "$rootImages/logo.png";
+  static const String newlogo = "$rootImages/newlogo.png";
   static const String sale = "$rootImages/sale.png";
   static const String onBoardingImageOne = "$rootImages/one.PNG";
   static const String onBoardingImageTwo = "$rootImages/two.PNG";

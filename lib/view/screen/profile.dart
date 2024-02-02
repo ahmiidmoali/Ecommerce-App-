@@ -64,6 +64,12 @@ class profilePage extends StatelessWidget {
                 //     onpress: () {},
                 //     icon: Icons.article_sharp),
                 CustomProfileListTile(
+                    title: "language",
+                    onpress: () {
+                      Get.toNamed(AppRoute.language);
+                    },
+                    icon: Icons.language_outlined),
+                CustomProfileListTile(
                     title: "Orders",
                     onpress: () {
                       Get.toNamed(AppRoute.pending);

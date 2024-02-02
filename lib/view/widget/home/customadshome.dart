@@ -26,22 +26,19 @@ class CustomAds1 extends GetView<HomePageAnimateController> {
           Positioned(
               bottom: 5,
               left: 5,
-              child: MaterialButton(
-                onPressed: () {},
-                child: Container(
-                  decoration: const BoxDecoration(
-                      color: AppColor.white,
-                      borderRadius: BorderRadius.all(Radius.circular(5))),
-                  padding: const EdgeInsets.all(1),
-                  height: 25,
-                  width: 80,
-                  child: const Text(
-                    "SHOP NOW",
-                    style: TextStyle(
-                        height: 1.5,
-                        color: AppColor.primaryColor,
-                        fontWeight: FontWeight.bold),
-                  ),
+              child: Container(
+                decoration: const BoxDecoration(
+                    color: AppColor.white,
+                    borderRadius: BorderRadius.all(Radius.circular(5))),
+                padding: const EdgeInsets.all(1),
+                height: 25,
+                width: 80,
+                child: const Text(
+                  "SHOP NOW",
+                  style: TextStyle(
+                      height: 1.5,
+                      color: AppColor.primaryColor,
+                      fontWeight: FontWeight.bold),
                 ),
               ))
         ],

@@ -76,6 +76,14 @@ class MyTranslation extends Translations {
           "56":
               " تم تغير كلمة المرور بنجاح\n لا تكشف عن كلمة المرور الخاصة بك\n لأي شخص لتجنب أي هجوم إلكتروني",
           "57": "ارجع الي التطبيق",
+          //homepage
+          "h1": "الاقسام",
+          "h2": "الاكثر مبيعا",
+          "h3": "الرئيسية",
+          "h4": "الاشعارات",
+          "h5": "الاعدادات",
+          "h6": "العروض",
+          "h7": "ابحث عن منتج"
         },
         "en": {
           //language
@@ -153,6 +161,14 @@ class MyTranslation extends Translations {
           "56":
               "Your password successfully changed.\nDo not disclose your password\nto anyone to avoid a cyber attack",
           "57": "Back To The App",
+          //homepage
+          "h1": "Categories",
+          "h2": "Top Selling",
+          "h3": "home",
+          "h4": "notif",
+          "h5": "Setting",
+          "h6": "Offers",
+          "h7": "Search for a Product",
         }
       };
 }

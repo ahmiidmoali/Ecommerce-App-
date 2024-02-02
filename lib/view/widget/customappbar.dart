@@ -29,7 +29,7 @@ class CustomAppBar extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 2),
             child: Image.asset(
-              AppImageAsset.deliveryd,
+              AppImageAsset.newlogo,
               color: AppColor.primaryColor,
               fit: BoxFit.fill,
               height: 50,

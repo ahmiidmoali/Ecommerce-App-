@@ -61,7 +61,10 @@ List<GetPage<dynamic>>? routes = [
   GetPage(name: AppRoute.pending, page: () => const pendingorders()),
   GetPage(name: AppRoute.orderdetails, page: () => const orderDetails()),
   GetPage(name: AppRoute.orderarchive, page: () => const archiveorders()),
+  //editlanguage
+  GetPage(name: AppRoute.language, page: () => const language()),
 ];
+
 
 
 

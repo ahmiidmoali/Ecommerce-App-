@@ -40,7 +40,8 @@ class homePage extends StatelessWidget {
               onchanged: (p0) {
                 controller.checkchanges(p0);
               },
-              hinttext: "Find Product",
+              hinttext: "h7".tr //"Find Product"
+              ,
               onpressfavourite: () {
                 Get.toNamed(AppRoute.myfavourite);
               },
@@ -50,14 +51,14 @@ class homePage extends StatelessWidget {
                 widget: !controller.ischanges
                     ? Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children: const [
+                        children: [
                           CustomAllAdsColumn(),
                           // if (controller.discounts)
                           //   CustomCardHome(
                           //       title: controller.title,
                           //       body:
                           //           "${controller.body} ${controller.discount}% "),
-                          CustomTitleHome(text: "Categories"),
+                          CustomTitleHome(text: "h1".tr), //Categories
                           ListCategoriesHome(),
                           SizedBox(
                             height: 5,
@@ -65,7 +66,7 @@ class homePage extends StatelessWidget {
                           SizedBox(
                             height: 5,
                           ),
-                          CustomTitleHome(text: "Top Selling"),
+                          CustomTitleHome(text: "h2".tr), //Top Selling
                           ListItemsHome(),
                         ],
                       )

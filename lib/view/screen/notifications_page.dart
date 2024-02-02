@@ -67,7 +67,7 @@ class NotificationCard extends StatelessWidget {
                   borderRadius: BorderRadius.circular(60),
                   border: Border.all(color: AppColor.black)),
               child: Image.asset(
-                AppImageAsset.deliveryd,
+                AppImageAsset.newlogo,
               ),
             ),
             Expanded(
@@ -80,7 +80,7 @@ class NotificationCard extends StatelessWidget {
                     Row(
                       children: [
                         Text("${notificationsModel.notificationsTitle}",
-                            style: TextStyle(
+                            style: const TextStyle(
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold,
                                 color: AppColor.primaryColor)),
