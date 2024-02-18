@@ -8,6 +8,7 @@ import 'package:project33/data/model/itemsmodel.dart';
 
 import '../../../core/constant/appcolor.dart';
 import '../../../core/functions/translatedatabase.dart';
+import '../../../core/shared/customprice_pres_itemdetails.dart';
 import '../../../linkapi.dart';
 
 class CustomListProductsItemsPage extends GetView<ItemsPageControllerImp> {
@@ -62,25 +63,10 @@ class CustomListProductsItemsPage extends GetView<ItemsPageControllerImp> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      Row(
-                        children: [
-                          Text(
-                            "EGP ",
-                            style: const TextStyle(
-                              // fontWeight: FontWeight.bold,
-                              fontSize: 15,
-                              color: AppColor.primaryColor,
-                            ),
-                          ),
-                          Text(
-                            "${itemsmodel.itemsafterdiscount}",
-                            style: const TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 20,
-                                color: AppColor.primaryColor,
-                                fontFamily: "sans"),
-                          ),
-                        ],
+                      PriceCoPresItemDetails(
+                        color: AppColor.primaryColor,
+                        fontSize: 20,
+                        price: "${itemsmodel.itemsafterdiscount!.toInt()}",
                       ),
                       GetBuilder<FavouriteController>(
                         builder: (controller) => IconButton(
@@ -127,7 +113,7 @@ class CustomListProductsItemsPage extends GetView<ItemsPageControllerImp> {
                 left: 61,
                 child: Text(
                   "${itemsmodel.itemsDiscount} %",
-                  style: TextStyle(
+                  style: const TextStyle(
                       fontSize: 30,
                       color: AppColor.grey,
                       fontWeight: FontWeight.bold),

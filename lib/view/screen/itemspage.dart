@@ -34,7 +34,7 @@ class itemsPage extends StatelessWidget {
                 onchanged: (p0) {
                   controller.checkchanges(p0);
                 },
-                hinttext: "Find Product",
+                hinttext: "g1".tr, //Find Product
                 onpressfavourite: () {
                   Get.toNamed(AppRoute.myfavourite);
                 },

@@ -35,7 +35,7 @@ class cartPage extends StatelessWidget {
         builder: (controller) => CustomCartBottomNavigatorBar(
             couponDone: controller.couponDone,
             keyoardstate: controller.usingkeyboard,
-            discount: "${(controller.coupondiscount)}%",
+            discount: "${(controller.coupondiscount)} %",
             couponController: controller.couponController,
             onPressedCoupon: () {
               controller.checkCoupon(controller.couponController!.text);
@@ -46,8 +46,8 @@ class cartPage extends StatelessWidget {
             onTapOutside: (p0) {
               controller.keyboardtyping(false);
             },
-            price: " ${controller.totalprice} \$",
-            totalPrice: " ${(controller.totalpriceequation())} \$ "),
+            price: " ${controller.totalprice}",
+            totalPrice: " ${(controller.totalpriceequation())} "),
       ),
       body: GetBuilder<CartPageController>(
         builder: (controller) => handlingDataView(
@@ -75,7 +75,7 @@ class cartPage extends StatelessWidget {
                       },
                       imagename: controller.data[index].itemsImage!,
                       itemsname: controller.data[index].itemsName!,
-                      itemsPrice: "${controller.data[index].itemsprice!} \$",
+                      itemsPrice: "${controller.data[index].itemsprice!}",
                       howmany: "${controller.data[index].itemscount!}"),
                 )
               ],

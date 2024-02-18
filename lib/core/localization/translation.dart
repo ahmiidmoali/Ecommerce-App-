@@ -83,7 +83,19 @@ class MyTranslation extends Translations {
           "h4": "الاشعارات",
           "h5": "الاعدادات",
           "h6": "العروض",
-          "h7": "ابحث عن منتج"
+          "h7": "ابحث عن منتج",
+          //general
+          "g1": "ابحث عن منتج",
+          "g2": "الي سلة المشتريات",
+          "g3": "جنية",
+          //settings
+          "s1": "الاشعارات",
+          "s2": "اللغة",
+          "s3": "الطلبات",
+          "s4": "العنوان",
+          "s5": "من نحن",
+          "s6": "للتواصل معنا",
+          "s7": "تسجيل الخروج",
         },
         "en": {
           //language
@@ -169,6 +181,18 @@ class MyTranslation extends Translations {
           "h5": "Setting",
           "h6": "Offers",
           "h7": "Search for a Product",
+          //general
+          "g1": "Search for a Product",
+          "g2": "Go To Cart",
+          "g3": "EGP",
+          //settings
+          "s1": "Notification",
+          "s2": "language",
+          "s3": "Orders",
+          "s4": "Adress",
+          "s5": "About Us",
+          "s6": "Contact Us",
+          "s7": "Log Out",
         }
       };
 }

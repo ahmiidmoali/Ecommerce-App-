@@ -4,7 +4,7 @@ import 'package:project33/controller/homepage_controller.dart';
 import 'package:project33/core/constant/appcolor.dart';
 import 'package:project33/data/model/itemsmodel.dart';
 import 'package:project33/data/model/topsellingmodel.dart';
-
+import 'package:arabic_numbers/arabic_numbers.dart';
 import '../../../controller/favourite_controller.dart';
 import '../../../core/functions/translatedatabase.dart';
 import '../../../linkapi.dart';
@@ -21,8 +21,8 @@ class ListItemsHome extends GetView<HomePageControllerImp> {
         GridView.builder(
           shrinkWrap: true,
           scrollDirection: Axis.vertical,
-          physics: NeverScrollableScrollPhysics(),
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          physics: const NeverScrollableScrollPhysics(),
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
               childAspectRatio: .7,
               mainAxisSpacing: 1,
@@ -53,6 +53,7 @@ class ListItems extends GetView<HomePageControllerImp> {
 
   @override
   Widget build(BuildContext context) {
+    ArabicNumbers arabicNumber = ArabicNumbers();
     return Container(
       alignment: Alignment.center,
       width: (Get.width / 2) * .9,
@@ -103,27 +104,51 @@ class ListItems extends GetView<HomePageControllerImp> {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Text(
-                          "EGP",
-                          style: const TextStyle(
-                            height: 1,
-                            color: Colors.black,
-                            fontSize: 14,
+                    translateDataBase(
+                      Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Text(
+                            "g3".tr, //"EGP"
+                            style: const TextStyle(
+                              height: 1,
+                              color: Colors.black,
+                              fontSize: 14,
+                            ),
                           ),
-                        ),
-                        Text(
-                          " ${(topSellingModel.itemsPrice! - topSellingModel.itemsPrice! * topSellingModel.itemsDiscount! / 100)}",
-                          style: const TextStyle(
-                              color: Color.fromARGB(255, 66, 58, 58),
-                              fontFamily: "sans",
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold),
-                        ),
-                      ],
-                    ),
+                          Text(
+                            " ${(topSellingModel.itemsPrice! - topSellingModel.itemsPrice! * topSellingModel.itemsDiscount! / 100).toInt()}",
+                            style: const TextStyle(
+                                color: Color.fromARGB(255, 66, 58, 58),
+                                fontFamily: "sans",
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Text(
+                            arabicNumber.convert(
+                                " ${(topSellingModel.itemsPrice! - topSellingModel.itemsPrice! * topSellingModel.itemsDiscount! / 100).toInt()} "),
+                            style: const TextStyle(
+                                color: Color.fromARGB(255, 66, 58, 58),
+                                fontFamily: "sans",
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          Text(
+                            "g3".tr, //"EGP"
+                            style: const TextStyle(
+                              height: 1,
+                              color: Colors.black,
+                              fontSize: 14,
+                            ),
+                          ),
+                        ],
+                      ),
+                    )
                   ],
                 ),
               ),
@@ -135,11 +160,14 @@ class ListItems extends GetView<HomePageControllerImp> {
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    SizedBox(
+                    const SizedBox(
                       width: 20,
                     ),
                     Text(
-                      "${topSellingModel.itemsPrice}",
+                      translateDataBase(
+                          "${topSellingModel.itemsPrice}",
+                          arabicNumber.convert(
+                              "${topSellingModel.itemsPrice!.toInt()}")),
                       style: const TextStyle(
                         decorationColor: Colors.black,
                         decoration: TextDecoration.lineThrough,
@@ -149,7 +177,10 @@ class ListItems extends GetView<HomePageControllerImp> {
                       ),
                     ),
                     Text(
-                      "   ${topSellingModel.itemsDiscount}%",
+                      translateDataBase(
+                          "   ${topSellingModel.itemsDiscount}%",
+                          arabicNumber
+                              .convert("   ${topSellingModel.itemsDiscount}%")),
                       style: const TextStyle(
                           color: Colors.black,
                           fontSize: 15,

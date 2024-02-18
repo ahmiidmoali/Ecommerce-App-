@@ -1,15 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:project33/controller/itemsdetails_controller.dart';
-import 'package:project33/core/class/handlingdataview.dart';
 import 'package:project33/core/constant/appcolor.dart';
 import 'package:get/get.dart';
 import 'package:project33/core/constant/routes.dart';
 import 'package:project33/core/functions/translatedatabase.dart';
-import 'package:project33/core/shared/customtextformfield_for_editing.dart';
-
-import '../../core/shared/customtextrich.dart';
-import '../widget/itemsdetails/customcoloritemsdetails.dart';
 import '../widget/itemsdetails/customimageitemsdetails.dart';
+import '../../core/shared/customprice_pres_itemdetails.dart';
 import '../widget/itemsdetails/custompriceitemsdetails.dart';
 
 class itemsDetails extends StatelessWidget {
@@ -30,9 +26,9 @@ class itemsDetails extends StatelessWidget {
             onPressed: () {
               Get.toNamed(AppRoute.cartpage);
             },
-            child: const Text(
-              "GO To Cart",
-              style: TextStyle(
+            child: Text(
+              "g2".tr, //Go To Cart
+              style: const TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
                   color: AppColor.white),
@@ -70,49 +66,26 @@ class itemsDetails extends StatelessWidget {
                 controller.remove();
               },
               price: controller.itemsmodel.itemsDiscount != 0
-                  ? Column(
+                  ? Stack(
+                      clipBehavior: Clip.none,
+                      alignment: Alignment.bottomCenter,
                       children: [
-                        Row(
-                          children: [
-                            const Text(
-                              "    ",
-                              style: TextStyle(
-                                height: 1,
-                                color: Colors.black,
-                                fontSize: 22,
-                              ),
-                            ),
-                            Text(
-                              "  ${controller.itemsmodel.itemsPrice}  ",
-                              style: const TextStyle(
-                                decorationColor: Colors.black,
-                                decoration: TextDecoration.lineThrough,
-                                fontFamily: "sans",
-                                color: Colors.red,
-                                fontSize: 25,
-                              ),
-                            ),
-                          ],
+                        Positioned(
+                          top: -40,
+                          child: PriceDisItemDetails(
+                            price:
+                                "${controller.itemsmodel.itemsPrice!.toInt()} ",
+                          ),
                         ),
-                        Row(
-                          children: [
-                            const Text(
-                              "EGP ",
-                              style: TextStyle(
-                                height: 1,
-                                color: Colors.black,
-                                fontSize: 22,
-                              ),
-                            ),
-                            CustomTextPrice(
-                                price:
-                                    "  ${(controller.itemsmodel.itemsPrice! - controller.itemsmodel.itemsPrice! * controller.itemsmodel.itemsDiscount! / 100)} \$ "),
-                          ],
+                        PricePresItemDetails(
+                          price:
+                              "${(controller.itemsmodel.itemsPrice! - controller.itemsmodel.itemsPrice! * controller.itemsmodel.itemsDiscount! / 100).toInt()}  ",
                         )
                       ],
                     )
-                  : CustomTextPrice(
-                      price: "${controller.itemsmodel.itemsPrice} \$")),
+                  : PricePresItemDetails(
+                      price: "${controller.itemsmodel.itemsPrice!.toInt()}  ",
+                    )),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
             child: Text(
@@ -124,17 +97,6 @@ class itemsDetails extends StatelessWidget {
                   .copyWith(fontSize: 18),
             ),
           ),
-          // Padding(
-          //   padding: const EdgeInsets.all(8.0),
-          //   child: Text(
-          //     "Color",
-          //     style: Theme.of(context)
-          //         .textTheme
-          //         .displayLarge!
-          //         .copyWith(fontSize: 25, color: AppColor.largetext),
-          //   ),
-          // ),
-          // const CustomColorItemsDetails(),
         ],
       ),
     );

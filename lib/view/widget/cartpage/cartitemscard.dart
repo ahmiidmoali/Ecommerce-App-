@@ -3,6 +3,8 @@ import 'package:project33/linkapi.dart';
 import '../../../core/constant/appcolor.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
+import '../../../core/shared/customprice_pres_itemdetails.dart';
+
 class CustomCartItemsCard extends StatelessWidget {
   final String itemsname;
   final String imagename;
@@ -31,7 +33,7 @@ class CustomCartItemsCard extends StatelessWidget {
             Expanded(
                 flex: 3,
                 child: CachedNetworkImage(
-                  imageUrl: "${AppLink.imageitems}/${imagename}",
+                  imageUrl: "${AppLink.imageitems}/$imagename",
                   height: 100,
                   width: 120,
                   fit: BoxFit.fill,
@@ -52,16 +54,10 @@ class CustomCartItemsCard extends StatelessWidget {
                             height: 1),
                       ),
                       Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 15),
-                        child: Text(
-                          itemsPrice,
-                          style: const TextStyle(
-                              fontSize: 22,
-                              color: AppColor.primaryColor,
-                              fontWeight: FontWeight.bold,
-                              height: 1),
-                        ),
-                      )
+                          padding: const EdgeInsets.symmetric(horizontal: 15),
+                          child: PricePresItemDetails(
+                            price: itemsPrice,
+                          ))
                     ],
                   ),
                 )),

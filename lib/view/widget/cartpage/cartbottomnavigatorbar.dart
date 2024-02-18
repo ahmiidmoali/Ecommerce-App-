@@ -1,3 +1,4 @@
+import 'package:arabic_numbers/arabic_numbers.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:project33/controller/cartpage_controller.dart';
@@ -7,6 +8,8 @@ import 'package:project33/view/widget/homescreen/custombottomappbar.dart';
 import 'package:project33/view/widget/language/custombuttomlang.dart';
 
 import '../../../core/constant/appcolor.dart';
+import '../../../core/functions/translatedatabase.dart';
+import '../../../core/shared/customprice_pres_itemdetails.dart';
 import 'customcouponbotton.dart';
 
 class CustomCartBottomNavigatorBar extends GetView<CartPageController> {
@@ -35,6 +38,7 @@ class CustomCartBottomNavigatorBar extends GetView<CartPageController> {
 
   @override
   Widget build(BuildContext context) {
+    ArabicNumbers arabicNumber = ArabicNumbers();
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 10),
       padding: const EdgeInsets.symmetric(horizontal: 1),
@@ -80,7 +84,7 @@ class CustomCartBottomNavigatorBar extends GetView<CartPageController> {
             Container(
               child: Text(
                 "Coupon Code (${controller.couponname})",
-                style: TextStyle(
+                style: const TextStyle(
                     fontSize: 25,
                     color: AppColor.primaryColor,
                     fontWeight: FontWeight.bold),
@@ -94,9 +98,10 @@ class CustomCartBottomNavigatorBar extends GetView<CartPageController> {
                 style: TextStyle(color: AppColor.grey1, fontSize: 18),
               ),
               const Spacer(),
-              Text(
-                price,
-                style: const TextStyle(color: AppColor.grey1, fontSize: 20),
+              PriceCoPresItemDetails(
+                fontSize: 20,
+                price: price,
+                color: AppColor.grey1,
               ),
             ],
           ),
@@ -109,7 +114,7 @@ class CustomCartBottomNavigatorBar extends GetView<CartPageController> {
               ),
               const Spacer(),
               Text(
-                discount,
+                translateDataBase(discount, arabicNumber.convert(discount)),
                 style: const TextStyle(color: AppColor.grey1, fontSize: 20),
               ),
             ],
@@ -126,13 +131,9 @@ class CustomCartBottomNavigatorBar extends GetView<CartPageController> {
                     fontWeight: FontWeight.bold),
               ),
               const Spacer(),
-              Text(
-                totalPrice,
-                style: const TextStyle(
-                    color: AppColor.primaryColor,
-                    fontSize: 22,
-                    fontWeight: FontWeight.bold),
-              ),
+              PricePresItemDetails(
+                price: totalPrice,
+              )
             ],
           ),
           CustomCartBottomSheetButton(

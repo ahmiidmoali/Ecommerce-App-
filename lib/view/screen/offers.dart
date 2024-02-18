@@ -8,9 +8,7 @@ import 'package:project33/data/model/itemsmodel.dart';
 import 'package:project33/linkapi.dart';
 import 'package:project33/view/widget/customappbar.dart';
 import '../../controller/favourite_controller.dart';
-import '../../controller/itemspage_controller.dart';
 import '../../controller/offers_controller.dart';
-import '../widget/items/customlistproductsitemspage.dart';
 import '../widget/offers/customlistproductsitemspage.dart';
 
 class offersPage extends StatelessWidget {
@@ -34,7 +32,7 @@ class offersPage extends StatelessWidget {
               onchanged: (p0) {
                 controller.checkchanges(p0);
               },
-              hinttext: "Find Product",
+              hinttext: "g1".tr, //Find Product
               onpressfavourite: () {
                 Get.toNamed(AppRoute.myfavourite);
               },

@@ -27,7 +27,7 @@ class FavouriteController extends GetxController {
       if (response["status"] == "success") {
         Get.rawSnackbar(
             title: "My Favourites",
-            messageText: Text("Added To Favourite List Successfully"));
+            messageText: const Text("Added To Favourite List Successfully"));
       } else {
         statusRequest = StatusRequest.failure;
       }
@@ -46,7 +46,7 @@ class FavouriteController extends GetxController {
         Get.rawSnackbar(
             backgroundColor: AppColor.grey,
             title: "My Favourites",
-            messageText: Text(
+            messageText: const Text(
               "Deleted From Favourite List Successfully",
               style: TextStyle(color: AppColor.white),
             ));

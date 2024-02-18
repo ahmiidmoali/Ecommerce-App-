@@ -35,9 +35,9 @@ class profilePage extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(height: 60),
+          const SizedBox(height: 60),
           Container(
-            padding: EdgeInsets.symmetric(horizontal: 5),
+            padding: const EdgeInsets.symmetric(horizontal: 5),
             child: Column(
               children: [
                 Container(
@@ -46,9 +46,9 @@ class profilePage extends StatelessWidget {
                     color: AppColor.white,
                   ),
                   child: ListTile(
-                      leading: const Text(
-                        "Disable Notification",
-                        style: TextStyle(fontSize: 20),
+                      leading: Text(
+                        "s1".tr, // "Notification"
+                        style: const TextStyle(fontSize: 20),
                       ),
                       trailing: GetBuilder<ProfilePageController>(
                         builder: (controller) => Switch(
@@ -64,35 +64,35 @@ class profilePage extends StatelessWidget {
                 //     onpress: () {},
                 //     icon: Icons.article_sharp),
                 CustomProfileListTile(
-                    title: "language",
+                    title: "s2".tr, //"language"
                     onpress: () {
                       Get.toNamed(AppRoute.language);
                     },
                     icon: Icons.language_outlined),
                 CustomProfileListTile(
-                    title: "Orders",
+                    title: "s3".tr, //"Orders"
                     onpress: () {
                       Get.toNamed(AppRoute.pending);
                     },
                     icon: Icons.article_sharp),
                 CustomProfileListTile(
-                    title: "Adress",
+                    title: "s4".tr, //"Adress"
                     onpress: () {
                       Get.toNamed(AppRoute.addressview);
                     },
                     icon: Icons.house_outlined),
                 CustomProfileListTile(
-                    title: "About Us",
+                    title: "s5".tr, //"About Us"
                     onpress: () {},
                     icon: Icons.help_outline_outlined),
                 CustomProfileListTile(
-                    title: "Contact Us",
+                    title: "s6".tr, //"Contact Us"
                     onpress: () {
                       launchUrl(Uri.parse("tel:+1-555-010-999"));
                     },
                     icon: Icons.phone),
                 CustomProfileListTile(
-                    title: "Log Out",
+                    title: "s7".tr, // "Log Out"
                     onpress: () {
                       controller.logOut();
                     },

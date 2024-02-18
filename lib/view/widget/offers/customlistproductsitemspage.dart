@@ -1,3 +1,4 @@
+import 'package:arabic_numbers/arabic_numbers.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -17,6 +18,7 @@ class CustomListOffersItemsPage extends GetView<OffersPageControllerImp> {
 
   @override
   Widget build(BuildContext context) {
+    ArabicNumbers arabicNumber = ArabicNumbers();
     // FavouriteController favcontroller = Get.put(FavouriteController());
     return InkWell(
       onTap: () {
@@ -46,25 +48,28 @@ class CustomListOffersItemsPage extends GetView<OffersPageControllerImp> {
                     style: const TextStyle(
                         fontSize: 20, fontWeight: FontWeight.bold),
                   ),
-                  Row(
-                    children: [
-                      const Text("Rating 4.0"),
-                      const SizedBox(
-                        width: 5,
-                      ),
-                      ...List.generate(
-                          5,
-                          (index) => const Icon(
-                                Icons.star,
-                                size: 18,
-                              ))
-                    ],
-                  ),
+                  // Row(
+                  //   children: [
+                  //     const Text("Rating 4.0"),
+                  //     const SizedBox(
+                  //       width: 5,
+                  //     ),
+                  //     ...List.generate(
+                  //         5,
+                  //         (index) => const Icon(
+                  //               Icons.star,
+                  //               size: 18,
+                  //             ))
+                  //   ],
+                  // ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       Text(
-                        "${itemsmodel.itemsafterdiscount} \$",
+                        translateDataBase(
+                            "EGP ${itemsmodel.itemsafterdiscount!.toInt()}",
+                            arabicNumber.convert(
+                                "${itemsmodel.itemsafterdiscount!.toInt()} جنية ")),
                         style: const TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 20,
@@ -115,8 +120,9 @@ class CustomListOffersItemsPage extends GetView<OffersPageControllerImp> {
                 top: -3,
                 left: 61,
                 child: Text(
-                  "${itemsmodel.itemsDiscount} %",
-                  style: TextStyle(
+                  translateDataBase("${itemsmodel.itemsDiscount} %",
+                      arabicNumber.convert("${itemsmodel.itemsDiscount} %")),
+                  style: const TextStyle(
                       fontSize: 30,
                       color: AppColor.grey,
                       fontWeight: FontWeight.bold),
